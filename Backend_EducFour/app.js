@@ -5,6 +5,9 @@ const { request, response } = require('express');
 const message = require('./controller/modulo/config')
 const app = express();
 
+const port = process.env.PORT || 8080
+
+
 app.use((request, response, next) => {
  
    response.header('Access-Control-Allow-Origin', '*');
@@ -137,25 +140,6 @@ app.post('/v1/educ_four/post/user', cors(), bodyJson, async function (request,re
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // //AULAS
 
 // app.get('/v1/educ_four/aulas/get', cors(), bodyJson, async function (request, response) {
@@ -268,6 +252,6 @@ app.post('/v1/educ_four/post/user', cors(), bodyJson, async function (request,re
 //    }
 // })
 
-app.listen(5050, function () {
-   console.log('servidor aguardado requisições na porta 8080')
-})
+app.listen(port, function () {
+   console.log("Servidor aguardando requisições");
+ })
